@@ -1,7 +1,8 @@
 package com.hdbank.auth_service.entity;
 
-import jakarta.persistence.*;
-import lombok.Builder;
+import jakarta.persistence.Column;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -18,26 +19,26 @@ public abstract class BaseEntity {
 
     @CreatedBy
     @Column(name = "created_by", nullable = false, updatable = false)
-    private String createdBy;
+    protected String createdBy;
 
     @LastModifiedBy
     @Column(name = "updated_by")
-    private String updatedBy;
+    protected String updatedBy;
 
     @Column(name = "deleted_by")
-    private String deletedBy;
+    protected String deletedBy;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt;
+    protected Instant createdAt;
 
     @LastModifiedDate
     @Column(name = "updated_at")
-    private Instant updatedAt;
+    protected Instant updatedAt;
 
     @Column(name = "deleted_at")
-    private Instant deletedAt;
+    protected Instant deletedAt;
 
     @Column(name = "is_deleted", nullable = false)
-    private boolean isDeleted;
+    protected boolean deleted;
 }
